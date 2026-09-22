@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura - Modern Web Tools</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        /* --- TOP SECTION (Harmless Product Landing) --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+        }
+
+        .badge {
+            background-color: #e0e7ff;
+            color: #4338ca;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* --- BOTTOM SECTION (The Reveal) --- */
+        .reveal-section {
+            min-height: 100vh;
+            background-color: #090d16;
+            color: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        .card-header {
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            color: #f43f5e;
+        }
+
+        .info-row {
+            margin-bottom: 1.25rem;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9ca3af;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-value {
+            font-family: monospace;
+            font-size: 1.25rem;
+            color: #38bdf8;
+            background: #030712;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            word-break: break-all;
+            border: 1px solid #1f2937;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Harmless Hero Section -->
+    <section class="hero">
+        <span class="badge">Aura v2.0 Released</span>
+        <h1>Build Faster.<br>Scale Effortlessly.</h1>
+        <p>Experience the next generation of web performance and automated infrastructure management.</p>
+        <a href="#reveal" class="cta-btn">Get Started Free</a>
+        
+        <div class="scroll-indicator">
+            ↓ Scroll down to view platform diagnostics
+        </div>
+    </section>
+
+    <!-- Reveal Section Below -->
+    <section class="reveal-section" id="reveal">
+        <div class="card">
+            <div class="card-header">
+                <h2>Is this your address? 👀</h2>
+            </div>
+            
+            <div class="info-row">
+                <div class="info-label">Detected IP Address</div>
+                <div class="info-value">{{ ip }}</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Nobi here is a nigger</div>
+                <div class="info-value" style="font-size: 0.9rem; color: #a7f3d0;">{{ browser }}</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
