@@ -1,15 +1,21 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
-    # Capture client connection details
-    client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
-    user_agent = request.headers.get('User-Agent', 'Unknown')
+    # Grab the X-Forwarded-For header if it exists
+    forwarded_for = request.headers.get('X-Forwarded-For')
     
-    # Pass both variables into index.html
-    return render_template("index.html", ip=client_ip, browser=user_agent)
+    if forwarded_for:
+        # Split the comma-separated string and take the first IP (the real client)
+        user_ip = forwarded_for.split(',')[0].strip()
+    else:
+        user_ip = request.remote_addr
 
-if __name__ == "__main__":
+    user_agent = request.headers.get('User-Agent')
+
+    return render_template('index.html', ip=user_ip, user_agent=user_agent)
+
+if __name__ == '__main__':
     app.run(debug=True)
